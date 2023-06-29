@@ -17,6 +17,13 @@ body{
     background-color: var(--bg-color);
     font-size: 1.6rem;
     font-family: var(--font-roboto);
+    display: grid;
+    height: 100vh;
+}
+
+main{
+  align-self: flex-end;
+  justify-self: center;
 }
 
 .hide{
@@ -51,5 +58,12 @@ button svg{
     border-radius: 9999px;
     gap: 3rem;
     
-    width: clamp(10rem , 10rem + 30vw,22.8rem);
+    width: clamp(10rem , 10rem + 30vw, 22.8rem);
+    height: clamp(2rem, 2rem + 10vw , 10.9rem);
+}
+
+footer{
+  justify-self: end;
+  align-self: flex-end;
+  padding: 3rem 4rem;
 }
