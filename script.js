@@ -9,8 +9,8 @@ const Play = {
     },
 
     close:() =>{
+      Play.pausebutton.classList.add('hide')
         Play.playButton.classList.remove('hide')
-        Play.pausebutton.classList.add('hide')
     }
 }
 
