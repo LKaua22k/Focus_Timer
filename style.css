@@ -14,7 +14,42 @@
 }
 
 body{
+    background-color: var(--bg-color);
     font-size: 1.6rem;
     font-family: var(--font-roboto);
 }
 
+.hide{
+    display: none;
+}
+
+button{
+    border: none;
+    background: transparent;
+  
+    cursor: pointer;
+}
+
+button svg{
+    width: clamp(3.2rem, 2rem + 12vw,6.4rem);
+}
+
+#timer{
+    font-size: 3.2rem;
+    color: var(--text-color);
+    font-size: clamp(4rem,4rem + 10vw,8.8rem) ;
+    font-weight: 700;
+    line-height: 10.3rem;
+    display: flex;
+}
+
+.buttons{
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    gap: 3rem;
+    
+    width: clamp(10rem , 10rem + 30vw,22.8rem);
+}
