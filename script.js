@@ -23,17 +23,20 @@ const Play = {
             let minutes = Number(minutesDisplay.textContent)
 
             if(minutes <= 0 && seconds <=0){
+                resetButtons()
                 return;
             }
 
             if(seconds <= 0){
                 seconds = 10
 
-                minutesDisplay.textContent = String(minutes - 1).padStart(2,"0")
+                --minutes
+                // minutesDisplay.textContent = String(minutes - 1).padStart(2,"0")
             }
 
 
-            secondsDisplay.textContent = String(seconds - 1).padStart(2,"0")
+            // secondsDisplay.textContent = String(seconds - 1).padStart(2,"0")
+            updateTimer(minutes , String(seconds -1))
             
             Play.countDown()
         }, 1000)
@@ -45,14 +48,12 @@ const Set = {
 
     start:() => {
         minutes = prompt("Quantos minutos?")
-        minutesDisplay.textContent = String(minutes).padStart(2,"0")
+        // minutesDisplay.textContent = String(minutes).padStart(2,"0")
+        updateTimer(minutes,0)
     },
 
     stop:() => {
-        Play.playButton.classList.remove('hide')
-        Play.pausebutton.classList.add('hide')
-        Set.setButton.classList.remove('hide')
-        Set.stopButton.classList.add('hide')
+        resetButtons()
     }
 }
 const Sound = {
@@ -70,12 +71,20 @@ const Sound = {
     }
 }
 
+function resetButtons(){
+    Play.playButton.classList.remove('hide')
+    Play.pausebutton.classList.add('hide')
+    Set.setButton.classList.remove('hide')
+    Set.stopButton.classList.add('hide')
+}
+
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 let minutes
+
 function updateTimer(minutes,seconds) {
     minutesDisplay.textContent = String(minutes).padStart(2,"0")
-    seconds.textContent = String(seconds).padStart(2,"0")
+    secondsDisplay.textContent = String(seconds).padStart(2,"0")
 }
 
 Play.playButton.addEventListener('click', Play.start)
