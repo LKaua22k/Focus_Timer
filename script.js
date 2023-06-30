@@ -16,10 +16,14 @@ const Play = {
         Play.playButton.classList.remove('hide')
     }
 }
-
 const Set = {
     setButton: document.querySelector('.set'),
     stopButton: document.querySelector('.stop'),
+
+    start:() => {
+        minutes = prompt("Quantos minutos?")
+
+    },
 
     stop:() => {
         Play.playButton.classList.remove('hide')
@@ -28,7 +32,26 @@ const Set = {
         Set.stopButton.classList.add('hide')
     }
 }
+const Sound = {
+    soundOn: document.querySelector('.on'),
+    soundOff:document.querySelector('.muted'),
+
+    on:() => {
+        Sound.soundOn.classList.add('hide')
+        Sound.soundOff.classList.remove('hide')
+    },
+
+    off:() => {
+        Sound.soundOn.classList.remove('hide')
+        Sound.soundOff.classList.add('hide')
+    }
+}
+
+let minutes
 
 Play.playButton.addEventListener('click', Play.start)
 Play.pausebutton.addEventListener('click', Play.close)
 Set.stopButton.addEventListener('click', Set.stop)
+Set.setButton.addEventListener('click', Set.start)
+Sound.soundOn.addEventListener('click', Sound.on )
+Sound.soundOff.addEventListener('click', Sound.off )
