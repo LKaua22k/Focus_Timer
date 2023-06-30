@@ -20,12 +20,17 @@ const Play = {
     countDown:() => {
         setTimeout(() => {
             let seconds = Number(secondsDisplay.textContent)
+            let minutes = Number(minutesDisplay.textContent)
 
             if(seconds <= 0){
-                seconds = 60
+                seconds = 10
+
+                minutesDisplay.textContent = String(minutes - 1).padStart(2,"0")
             }
 
-            secondsDisplay.textContent = seconds - 1
+
+            secondsDisplay.textContent = String(seconds - 1).padStart(2,"0")
+            
             Play.countDown()
         }, 1000)
     }
