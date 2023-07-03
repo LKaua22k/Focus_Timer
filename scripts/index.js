@@ -8,7 +8,7 @@ const Play = {
         Play.pausebutton.classList.remove('hide')
         Set.setButton.classList.add('hide')
         Set.stopButton.classList.remove('hide')
-        // Sound.pressButton
+        Sound.pressButton
         countDown()
     },
 
@@ -44,29 +44,29 @@ const Sound = {
     soundOn: document.querySelector('.on'),
     soundOff:document.querySelector('.muted'),
     
-    // buttonPressAudio: new Audio(
-    //     "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true"
-    //   ),
+    buttonPressAudio: new Audio(
+        "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true"
+      ),
 
-    // kitchenTimer: new Audio(
-    //     "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true"
-    //   ),
+    kitchenTimer: new Audio(
+        "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true"
+      ),
 
-    // bgAudio = new Audio(
-    //     "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/bg-audio.mp3?raw=true"
-    // ),
+    bgAudio: new Audio(
+        "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/bg-audio.mp3?raw=true"
+    ),
     
-    // on:() => {
-    //     Sound.soundOn.classList.add('hide')
-    //     Sound.soundOff.classList.remove('hide')
-    // },
+    on:() => {
+        Sound.soundOn.classList.add('hide')
+        Sound.soundOff.classList.remove('hide')
+    },
 
-    // off:() => {
-    //     Sound.soundOn.classList.remove('hide')
-    //     Sound.soundOff.classList.add('hide')
-    // },
+    off:() => {
+        Sound.soundOn.classList.remove('hide')
+        Sound.soundOff.classList.add('hide')
+    },
 
-    // pressButton:() => { Sound.buttonPressAudio.play()},
+    pressButton:() => { Sound.buttonPressAudio.play()},
 
 }
 
