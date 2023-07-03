@@ -1,7 +1,4 @@
-import sounds from "./souds.js"
-
-const sounds = Sound()
-
+// Play timer
 const Play = {
     playButton: document.querySelector('.play'),
     pausebutton: document.querySelector('.pause'),
@@ -11,14 +8,14 @@ const Play = {
         Play.pausebutton.classList.remove('hide')
         Set.setButton.classList.add('hide')
         Set.stopButton.classList.remove('hide')
-        sounds.pressButton
+        Sound.pressButton
         countDown()
     },
 
     close:() =>{
         Play.pausebutton.classList.add('hide')
         Play.playButton.classList.remove('hide')
-        sounds.pressButton
+
         clearTimeout(timerTimeout)
     },
 }
@@ -36,19 +33,29 @@ const Set = {
         minutes = Newinutes
         // minutesDisplay.textContent = String(minutes).padStart(2,"0")
         updateTimer(minutes,0)
-        sounds.pressButton
     },
 
     stop:() => {
         resetButtons()
         reseTimeout()
-        sounds.pressButton
     }
 }
 const Sound = {
     soundOn: document.querySelector('.on'),
     soundOff:document.querySelector('.muted'),
+    
+    buttonPressAudio: new Audio(
+        "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true"
+      ),
 
+    kitchenTimer: new Audio(
+        "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true"
+      ),
+
+    bgAudio = new Audio(
+        "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/bg-audio.mp3?raw=true"
+    ),
+    
     on:() => {
         Sound.soundOn.classList.add('hide')
         Sound.soundOff.classList.remove('hide')
@@ -57,7 +64,10 @@ const Sound = {
     off:() => {
         Sound.soundOn.classList.remove('hide')
         Sound.soundOff.classList.add('hide')
-    }
+    },
+
+    pressButton:() => { Sound.buttonPressAudio.play()},
+
 }
 
 const minutesDisplay = document.querySelector('.minutes')
@@ -90,12 +100,11 @@ function countDown(){
 
         if(minutes <= 0 && seconds <=0){
             resetButtons()
-            sounds.timerEnd
             return;
         }
 
         if(seconds <= 0){
-            seconds = 2
+            seconds = 10
 
             --minutes
             // minutesDisplay.textContent = String(minutes - 1).padStart(2,"0")
