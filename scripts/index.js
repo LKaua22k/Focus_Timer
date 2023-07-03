@@ -76,6 +76,7 @@ const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 let minutes = Number(minutesDisplay.textContent)
 let timerTimeout
+Sound.bgAudio.loop = true
 
 
 function updateTimer(minutes,seconds) {
