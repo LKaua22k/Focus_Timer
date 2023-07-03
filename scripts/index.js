@@ -107,7 +107,7 @@ function countDown(){
         }
 
         if(seconds <= 0){
-            seconds = 10
+            seconds = 60
 
             --minutes
             // minutesDisplay.textContent = String(minutes - 1).padStart(2,"0")
