@@ -8,14 +8,14 @@ const Play = {
         Play.pausebutton.classList.remove('hide')
         Set.setButton.classList.add('hide')
         Set.stopButton.classList.remove('hide')
-        Sound.pressButton
+        Sound.buttonPressAudio.play()
         countDown()
     },
 
     close:() =>{
         Play.pausebutton.classList.add('hide')
         Play.playButton.classList.remove('hide')
-
+        Sound.buttonPressAudio.play()
         clearTimeout(timerTimeout)
     },
 }
@@ -32,12 +32,14 @@ const Set = {
 
         minutes = Newinutes
         // minutesDisplay.textContent = String(minutes).padStart(2,"0")
+        Sound.buttonPressAudio.play()        
         updateTimer(minutes,0)
     },
 
     stop:() => {
         resetButtons()
         reseTimeout()
+        Sound.buttonPressAudio.play()
     }
 }
 const Sound = {
@@ -59,14 +61,14 @@ const Sound = {
     on:() => {
         Sound.soundOn.classList.add('hide')
         Sound.soundOff.classList.remove('hide')
+        Sound.bgAudio.play()
     },
 
     off:() => {
         Sound.soundOn.classList.remove('hide')
         Sound.soundOff.classList.add('hide')
+        Sound.bgAudio.pause()
     },
-
-    pressButton:() => { Sound.buttonPressAudio.play()},
 
 }
 
@@ -74,6 +76,7 @@ const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 let minutes = Number(minutesDisplay.textContent)
 let timerTimeout
+
 
 function updateTimer(minutes,seconds) {
     minutesDisplay.textContent = String(minutes).padStart(2,"0")
