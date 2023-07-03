@@ -103,6 +103,7 @@ function countDown(){
 
         if(minutes <= 0 && seconds <=0){
             resetButtons()
+            Sound.kitchenTimer.play()
             return;
         }
 
