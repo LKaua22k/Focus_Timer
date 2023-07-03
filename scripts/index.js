@@ -1,4 +1,7 @@
-// Play timer
+import sounds from "./souds.js"
+
+const sounds = Sound()
+
 const Play = {
     playButton: document.querySelector('.play'),
     pausebutton: document.querySelector('.pause'),
@@ -8,14 +11,14 @@ const Play = {
         Play.pausebutton.classList.remove('hide')
         Set.setButton.classList.add('hide')
         Set.stopButton.classList.remove('hide')
-
+        sounds.pressButton
         countDown()
     },
 
     close:() =>{
         Play.pausebutton.classList.add('hide')
         Play.playButton.classList.remove('hide')
-
+        sounds.pressButton
         clearTimeout(timerTimeout)
     },
 }
@@ -33,11 +36,13 @@ const Set = {
         minutes = Newinutes
         // minutesDisplay.textContent = String(minutes).padStart(2,"0")
         updateTimer(minutes,0)
+        sounds.pressButton
     },
 
     stop:() => {
         resetButtons()
         reseTimeout()
+        sounds.pressButton
     }
 }
 const Sound = {
@@ -85,11 +90,12 @@ function countDown(){
 
         if(minutes <= 0 && seconds <=0){
             resetButtons()
+            sounds.timerEnd
             return;
         }
 
         if(seconds <= 0){
-            seconds = 10
+            seconds = 2
 
             --minutes
             // minutesDisplay.textContent = String(minutes - 1).padStart(2,"0")
